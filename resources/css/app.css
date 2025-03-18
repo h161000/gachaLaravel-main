@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'kei-font';
+    src: url('/fonts/keifont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'lpop';
+    src: url('/fonts/lpop.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'mplus2';
+    src: url('/fonts/MPLUS2.ttf') format('truetype');
+}
+
+/* PC */
+.footer_padding {
+    padding-bottom: 120px;
+}
+
+.bg-custom {
+    background: #F5F5F5;
+}
+
+/* html {
+    overflow: auto!important;
+} */
+
+/* Mobile */
+@media only screen and (max-width: 768px) {  
+    .footer_padding {
+        padding-bottom: 120px;
+    }
+}
+
+@media only screen and (max-width: 640px) {  
+    .footer_padding {
+        padding-bottom: 180px;
+    }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f0f0f0; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #53ccff; 
+    border-radius: 0;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #00aeff; 
+}
+
+.rounded-corner-div {
+    background: linear-gradient(to bottom, white, white) no-repeat, linear-gradient(to bottom, white, white) no-repeat;
+    background-position: center;
+    background-size: calc(100% - 8px) 100%, 100% calc(100% - 8px);
+}
+
+.bg-theme {
+    background-color: #0ea5e9;
+}
+
+.bg-theme-hover:hover {
+    background-color: #28bafd;
+}
+
+.multiselect__option {
+    display: none!important;
+}
+
+.multiselect__input {
+    border-radius: 5px!important;
+    height: 30px!important;
+}
+
+.multiselect__tag {
+    background-color: #0ea5e9!important;
+    padding-top: 8px!important;
+    padding-bottom: 8px!important;
+}
+
+.multiselect__tag-icon {
+    line-height: 30px!important;
+    color: red!important;
+}
