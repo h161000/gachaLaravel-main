@@ -17,30 +17,32 @@ class CreateUsers extends Seeder
     {
         $users = [
             [
-               'name'=>'管理者',
-               'email'=>'admin@example.com',
-               'phone'=>'12345678',
-               'type'=>1,
-               'password'=> bcrypt('password'),
+                'name'=>'管理者',
+                'email'=>'admin@example.com',
+                'phone'=>'12345678',
+                'type'=>1,
+                'dp'=>1000000,
+                'point'=>1000000,
+                'password'=> bcrypt('password'),
             ],
             [
-               'name'=>'ユーザー',
-               'email'=>'user@example.com',
-               'phone'=>'11111111',
-               'type'=>0,
-               'dp'=>100000,
-               'point'=>100000,
-               'password'=> bcrypt('password'),
+                'name'=>'ユーザー1',
+                'email'=>'user@example.com',
+                'phone'=>'11111111',
+                'type'=>0,
+                'dp'=>1000000,
+                'point'=>1000000,
+                'password'=> bcrypt('password'),
             ],
             [
-                'name'=>'ユーザー',
+                'name'=>'ユーザー2',
                 'email'=>'staff@example.com',
                 'phone'=>'11111112',
                 'type'=>0,
-                'dp'=>100000,
+                'dp'=>1000000,
                 'point'=>100000,
                 'password'=> bcrypt('password'),
-             ],
+            ],
         ];
     
         foreach ($users as $key => $user) {
