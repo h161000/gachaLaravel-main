@@ -103,10 +103,10 @@
             <div class="mb-2 text-sm">配送先情報</div>
             <div class="mb-8 border border-neutral-600 rounded-md px-4 py-2 flex items-center justify-between">
                 <div class="flex-1">
-                    <template v-if="products.id">
-                        <p class="font-bold text-sm">{{ products.first_name + products.last_name }}</p>
-                        <p class="text-sm">〒{{ products.postal_code }}</p>
-                        <p class="text-sm">{{ products.address }}</p>
+                    <template v-if="profile && profile.id">
+                        <p class="font-bold text-sm">{{ profile.first_name + profile.last_name }}</p>
+                        <p class="text-sm">〒{{ profile.postal_code }}</p>
+                        <p class="text-sm">{{ profile.address }}</p>
                     </template>
                 </div>
                 <div>
@@ -146,11 +146,10 @@
                     class="w-40 inline-block items-center px-1 py-2 rounded-md bg-red-500 hover:bg-red-600 transition ease-in-out duration-150">
                 ガチャTOPへ
                 </Link>
-                <button type="button" @click="back_delivery()" :class="{ 'opacity-50': form.processing || (!hasCheck) }"
-                    :disabled="form.processing || (!hasCheck)"
+                <Link as="button" :href="route('user.products')"
                     class="w-40 inline-block items-center px-1 py-2 rounded-md bg-theme bg-theme-hover transition ease-in-out duration-150">
-                    獲得した商品一覧へ
-                </button>
+                獲得した商品一覧へ
+                </Link>
             </div>
         </div>
         <!-- box-shadow: 0px 0px 15px 2px rgba(255, 255, 255, 0.6); -->
@@ -171,7 +170,7 @@ export default {
         category_share: Object,
         products: Object,
         token: String,
-        products: Object,
+        profile: Object,
     },
     data() {
         return {
@@ -255,7 +254,7 @@ export default {
             this.ready_delivery = 0;
         },
         submit_delivery() {
-            if (this.products.address) {
+            if (this.profile.address) {
                 if (confirm('' + this.products_count + '点の商品を配送しますか？')) {
                     this.form.post(route('user.delivery.post'), {
                         preserveScroll: true,

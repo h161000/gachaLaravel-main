@@ -232,7 +232,15 @@ class UserController extends Controller
         $hide_cat_bar = 1;
         $hide_back_btn = 1;
         $show_result_bg = 1;
-        return inertia('User/Result', compact('products', 'hide_cat_bar', 'hide_back_btn', 'show_result_bg', 'token'));
+
+        $user = auth()->user();
+        $profiles = Profile::where('user_id', $user->id)->get();
+        $profile = (object)[];
+        if (count($profiles)) {
+            $profile = $profiles[0];
+        }
+        $hide_cat_bar = 1;
+        return inertia('User/Result', compact('products', 'hide_cat_bar', 'hide_back_btn', 'show_result_bg', 'token', 'profile'));
     }
 
     public function result_exchange(Request $request) {
